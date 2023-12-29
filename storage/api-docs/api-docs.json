@@ -1,0 +1,3046 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Etana Open Api Documentation",
+        "description": "",
+        "version": ""
+    },
+    "servers": [
+        {
+            "url": "https://utajeer.com/",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/appLogin": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Authenticate User",
+                "description": "Return auth user data",
+                "operationId": "appLogin",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "device_token": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/appRegister": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register User",
+                "description": "Return auth user data",
+                "operationId": "appRegister",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string"
+                                    },
+                                    "role": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User registered.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/reset-password": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Reset PAssword",
+                "description": "return string",
+                "operationId": "reset-password",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "new_password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Password reset successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/register-mail-otp": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register Mail Otp",
+                "description": "return string",
+                "operationId": "register-mail-otp",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "registered_user": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Register Otp Send Successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/register-mail-otp-verify": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register Mail Otp Verify",
+                "description": "return string",
+                "operationId": "register-mail-otp-verify",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "otp": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Register Otp Verified Successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/appLogout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Logout User",
+                "description": "Return auth user data",
+                "operationId": "appLogout",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Logout Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/appChangePasword": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Change Password",
+                "description": "return string",
+                "operationId": "appChangePasword",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "old_password": {
+                                        "type": "string"
+                                    },
+                                    "new_password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User password changed successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getInfo": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Basic information of User",
+                "description": "return string",
+                "operationId": "getInfo",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Basic information of User",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/editUserInfo": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Edit User Info",
+                "description": "Return auth user data",
+                "operationId": "editUserInfo",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    },
+                                    "job": {
+                                        "type": "string"
+                                    },
+                                    "dob": {
+                                        "type": "string"
+                                    },
+                                    "business_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Update User info Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/appChangeLang": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "change Language",
+                "description": "return string",
+                "operationId": "appChangeLang",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "lang": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Language changed Successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/accountSetting": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Account Setting",
+                "description": "return array",
+                "operationId": "accountSetting",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Update Account Setting Successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/userWishList": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "User Wish List",
+                "description": "return array",
+                "operationId": "userWishList",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User Wish List.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/userCartList": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "User Cart",
+                "description": "return array",
+                "operationId": "userCartList",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User Cart list.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/faq": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "FAQ",
+                "description": "return array",
+                "operationId": "faq",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "FAQ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/contact_us": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Contact Us",
+                "description": "return string",
+                "operationId": "contact_us",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "subject": {
+                                        "type": "string"
+                                    },
+                                    "content": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Your query has been submitted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/addBillingAddress": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "add Billing address",
+                "description": "return string",
+                "operationId": "addBillingAddress",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "zip_code": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Added address Successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/editBillingAddress": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Edit Billing Address",
+                "description": "return string",
+                "operationId": "editBillingAddress",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "address_id": {
+                                        "type": "integer"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "zip_code": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Updated Address Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteBillingAddress": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Delete Billing Address",
+                "description": "return string",
+                "operationId": "deleteBillingAddress",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "address_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Deleted Address Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/listBillingAddress": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "List of Billing Address",
+                "description": "return array",
+                "operationId": "listBillingAddress",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "type": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "List of Billing Addresses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/addDefaultBillingAddress": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Add Default Billing Address",
+                "description": "return string",
+                "operationId": "addDefaultBillingAddress",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "type": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Changed Default Billing Address Successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/appUploadDoc": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Upload Document",
+                "description": "return string",
+                "operationId": "appUploadDoc",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "validity_date": {
+                                        "type": "integer"
+                                    },
+                                    "doc_photo1": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Upload Document Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/addUserCardDetails": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "add User Card Details",
+                "description": "return string",
+                "operationId": "addUserCardDetails",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "card_no": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "expires_on": {
+                                        "type": "string"
+                                    },
+                                    "cvv": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Added User Card Details Successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/editUserCardDetails": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Edit Billing Address",
+                "description": "return string",
+                "operationId": "editUserCardDetails",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "card_id": {
+                                        "type": "integer"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "card_no": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "expires_on": {
+                                        "type": "string"
+                                    },
+                                    "cvv": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Updated Card Details Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteUserCardDetails": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Delete User Card Details",
+                "description": "return string",
+                "operationId": "deleteUserCardDetails",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "card_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Deleted Card Details Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/listUserCardDetails": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "List of Card Detail",
+                "description": "return array",
+                "operationId": "listUserCardDetails",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "List of Card Details",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/addDefaultUserCardDetails": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Add Default Card Details",
+                "description": "return string",
+                "operationId": "addDefaultUserCardDetails",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "card_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Changed Default User Card Successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/common-info": {
+            "get": {
+                "tags": [
+                    "Basic Info"
+                ],
+                "summary": "Basic information of User",
+                "description": "Return basic info of panel data data",
+                "operationId": "Common Info",
+                "responses": {
+                    "200": {
+                        "description": "Basic Info Data.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/appOrderHistory": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Order History",
+                "description": "Return order history array",
+                "operationId": "appOrderHistory",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Order History list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/appOrderCreate": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Order create",
+                "description": "return string",
+                "operationId": "appOrderCreate",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "customer_id": {
+                                        "type": "integer"
+                                    },
+                                    "amount": {
+                                        "type": "integer"
+                                    },
+                                    "shipping_amount": {
+                                        "type": "integer"
+                                    },
+                                    "discount_amount": {
+                                        "type": "integer"
+                                    },
+                                    "tax_amount": {
+                                        "type": "integer"
+                                    },
+                                    "shipping_option": {
+                                        "type": "integer"
+                                    },
+                                    "coupon_code": {
+                                        "type": "string"
+                                    },
+                                    "discount_description": {
+                                        "type": "string"
+                                    },
+                                    "store_id": {
+                                        "type": "integer"
+                                    },
+                                    "product_id": {
+                                        "type": "string"
+                                    },
+                                    "qty": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Order Created Successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/downloadInvoice": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Download Invoice",
+                "description": "Return invoice pdf",
+                "operationId": "downloadInvoice",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "order_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Download Invoice",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orderPlacedConfirmation": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Order Placed Confirmation",
+                "description": "Return array",
+                "operationId": "orderPlacedConfirmation",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "order_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Order Placed Confirmation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orderHistoryDetails": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Order History Details",
+                "description": "Return order history detail array",
+                "operationId": "orderHistoryDetails",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "order_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Order History Details",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/appProductListing": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Product List",
+                "description": "Return array product list",
+                "operationId": "appProductListing",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Product list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/productCategories": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Product Categories",
+                "description": "Return array product Categories list",
+                "operationId": "productCategories",
+                "requestBody": {
+                    "description": "Input data format"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Product Category list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/subCategories": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Sub Categories",
+                "description": "Return array",
+                "operationId": "subCategories",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "category_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "List of Sub categories.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/categorySearch": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Categories Search",
+                "description": "Return array",
+                "operationId": "categorySearch",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "category": {
+                                        "type": "integer"
+                                    },
+                                    "search": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Search Result",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/productSubCategories": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Product Sub Categories",
+                "description": "Return array product sub categories list",
+                "operationId": "productSubCategories",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "category_id": {
+                                        "type": "integer"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Product Sub-Category list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/similarProducts": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Similar Product List",
+                "description": "Return array Similar product list",
+                "operationId": "similarProducts",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "product_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Similar Product list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/appProductDetail": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Product Details",
+                "description": "Return object of product detail",
+                "operationId": "appProductDetail",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "product_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Product Detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Empty list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/appProductFav": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Add to Favourites list",
+                "description": "Return string",
+                "operationId": "appProductFav",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "product_id": {
+                                        "type": "integer"
+                                    },
+                                    "is_fav": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Add to Favourites",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "User not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/addToCart": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Add to cart ",
+                "description": "Return string",
+                "operationId": "addToCart",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "product_id": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Add to Cart",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "User not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/editCart": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Edit cart ",
+                "description": "Return string",
+                "operationId": "editCart",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "product_id": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Update Cart Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "User not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/removeFromCart": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Remove from cart ",
+                "description": "Return string",
+                "operationId": "removeFromCart",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "product_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Remove items from Cart Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "User not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/productFilter": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Product list ",
+                "description": "Return string",
+                "operationId": "productFilter",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "end_price": {
+                                        "type": "string"
+                                    },
+                                    "start_price": {
+                                        "type": "string"
+                                    },
+                                    "brand": {
+                                        "type": "string"
+                                    },
+                                    "color": {
+                                        "type": "string"
+                                    },
+                                    "category": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Product list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/productSearch": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Product Search ",
+                "description": "Return string",
+                "operationId": "productSearch",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "search": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Product search result",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/productFilterTags": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Product Filter tags ",
+                "description": "Return string",
+                "operationId": "productFilterTags",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Product Filter tags",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getProductCharges": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Product Charges ",
+                "description": "return string",
+                "operationId": "getProductCharges",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Product Charges",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/checkProductDiscount": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Check Discount Price on Product",
+                "description": "Return string",
+                "operationId": "checkProductDiscount",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "promo_code": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Discount Percentage",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/returnProduct": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Return Product",
+                "description": "Return string",
+                "operationId": "returnProduct",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "subject": {
+                                        "type": "string"
+                                    },
+                                    "reason": {
+                                        "type": "string"
+                                    },
+                                    "product_id": {
+                                        "type": "integer"
+                                    },
+                                    "order_id": {
+                                        "type": "integer"
+                                    },
+                                    "order_date": {
+                                        "type": "string"
+                                    },
+                                    "estimate_delivery_date": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return Product",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "error message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/returnOrderList": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Return Order List",
+                "description": "Return array",
+                "operationId": "returnOrderList",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return Order List",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/addInstructionCart": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Add Instruction Cart",
+                "description": "Return string",
+                "operationId": "addInstructionCart",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "note": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return string",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "string",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/offers": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Offers",
+                "description": "Return array",
+                "operationId": "offers",
+                "requestBody": {
+                    "description": "Input data format"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return Offers List",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/return_policy": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Return Policy",
+                "description": "Return array",
+                "operationId": "return_policy",
+                "requestBody": {
+                    "description": "Input data format"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/terms_and_conditions": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Terms and Conditions",
+                "description": "Return array",
+                "operationId": "terms_and_conditions",
+                "requestBody": {
+                    "description": "Input data format"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/offerProducts": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Offer Product list",
+                "description": "Return array",
+                "operationId": "offerProducts",
+                "requestBody": {
+                    "description": "Input data format"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "empty array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/addReview": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Add Review",
+                "description": "Return String",
+                "operationId": "addReview",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "customer_id": {
+                                        "type": "integer"
+                                    },
+                                    "product_id": {
+                                        "type": "integer"
+                                    },
+                                    "star": {
+                                        "type": "integer"
+                                    },
+                                    "comment": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Added Review Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/productReviewList": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Product Review List",
+                "description": "return array",
+                "operationId": "productReviewList",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "customer_id": {
+                                        "type": "integer"
+                                    },
+                                    "product_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Product Review list.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/stripeToken": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Create Stripe Token",
+                "description": "Return Array",
+                "operationId": "stripeToken",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "card_number": {
+                                        "type": "string"
+                                    },
+                                    "exp_month": {
+                                        "type": "string"
+                                    },
+                                    "exp_year": {
+                                        "type": "string"
+                                    },
+                                    "cvc": {
+                                        "type": "string"
+                                    },
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Token Created Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/stripePost": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Payment create",
+                "description": "return array",
+                "operationId": "stripePost",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "amount": {
+                                        "type": "integer"
+                                    },
+                                    "stripeToken": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Payment Successfull.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/saveData": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Saved Data",
+                "description": "Return string",
+                "operationId": "saveData",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "order_id": {
+                                        "type": "integer"
+                                    },
+                                    "payment_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Data saved Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
